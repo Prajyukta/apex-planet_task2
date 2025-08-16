@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="contact.html">CONTACT & TASKS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="box">
+            <section>
+                <h2>Contact Us</h2>
+                <form class ="contact-form">
+                    <input type="text" placeholder="Your Name" required />
+                    <input type="email" placeholder="Your Email" required />
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+        <div class="box2">
+            <section class="tasklist">
+                <h2>My To-Do List</h2>
+                <input type="text" id="taskInput" placeholder="Add task">
+                <button id="addTask">Add</button>
+                <ul id="taskList"></ul>
+            </section>
+        </div>
+    </main>
+</body>
+<script>
+    // Contact Form Validation
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let name = document.querySelector(".contact-form input[type='text']").value.trim();
+    let email = document.querySelector(".contact-form input[type='email']").value.trim();
+    let message = document.querySelector(".contact-form textarea").value.trim();
+
+    let valid = true;
+
+    // Remove any previous error styles
+    document.querySelectorAll(".error").forEach(el => el.remove());
+
+    if (name === "") {
+        showError(".contact-form input[type='text']", "Name is required");
+        valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError(".contact-form input[type='email']", "Invalid email address");
+        valid = false;
+    }
+
+    if (message === "") {
+        showError(".contact-form textarea", "Message cannot be empty");
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Form submitted successfully!");
+        // You can add code here to actually send the form data via AJAX or backend
+    }
+});
+
+function showError(selector, message) {
+    let element = document.querySelector(selector);
+    let error = document.createElement("div");
+    error.className = "error";
+    error.style.color = "red";
+    error.style.fontSize = "0.9em";
+    error.textContent = message;
+    element.insertAdjacentElement("afterend", error);
+}
+
+// To-Do List Functionality
+document.getElementById("addTask").addEventListener("click", function () {
+    let taskValue = document.getElementById("taskInput").value.trim();
+    if (taskValue === "") return;
+
+    let li = document.createElement("li");
+    li.textContent = taskValue;
+
+    let delBtn = document.createElement("button");
+    delBtn.textContent = "❌";
+    delBtn.style.marginLeft = "10px";
+    delBtn.onclick = function () {
+        li.remove();
+    };
+
+    li.appendChild(delBtn);
+    document.getElementById("taskList").appendChild(li);
+
+    document.getElementById("taskInput").value = "";
+});
+
+</script>
+
+</html>
