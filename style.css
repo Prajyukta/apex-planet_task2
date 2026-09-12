@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: #f4f9f9;
+    color: #333;
+}
+
+header {
+    background-color: rgb(24, 131, 24);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+}
+main{
+    margin: 100px;
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: x-large;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+.box{
+    width: 445px;
+    height: 445px;
+    border-radius: 45px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.box2{
+    width: 445px;
+    height: 445px;
+    border-radius: 45px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.contact h2{
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    /* margin-top: 100px;
+    margin-bottom: 50px; */
+}
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+input, textarea {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 1rem;
+    background: rgb(24, 131, 24);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 175px;
+
+}
+.font h1{
+    color: rgb(24, 131, 24);
+    margin: 50px;
+    font-weight: bolder;
+    font-size: 200%;
+}
+.tasklist li {
+    margin: 5px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+.tasklist button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+.tasklist button:hover {
+    background: darkred;
+  }

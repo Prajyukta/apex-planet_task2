@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+data/raw/*
+data/processed/*.parquet
+*.sql.gz
+*.dump

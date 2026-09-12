@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-2></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="home">HOME</a></li>
+                <li><a href="contact.html">CONTACT & TASKS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="font">
+            <img src="https://ci3.googleusercontent.com/meips/ADKq_NbgVRY6SVCYKU905zf4wQP0zYqgdmHrIIecl7kmwi3Na-9IQHhaZcXNbskihZpWhttKS_4QzUAse6Zh2lxALfcBVIz_4dFSiUyTNJtGhZ-EWTULChERw42PJ7Z9jvrEXUcxEW1Sgnj8wAbrfs2R74EWDsU_0ESPfNZ_eIaNAj76jAzlGYbdcWjT=s0-d-e1-ft#https://apexplanet.in/wp-content/uploads/2024/07/apexplanet-low-resolution-logo-color-on-transparent-background.png" width="350" alt="">
+            <h1>Stay productive and connected on Apex Planet.</h1>
+            <h4>Manage your daily tasks and reach out to us — all in one space.</h4>
+    </main>
+</body>
+<script>
+// Contact Form Validation
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+  let valid = true;
+
+  // Clear previous errors
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("emailError").textContent = "";
+  document.getElementById("messageError").textContent = "";
+
+  if (name === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    valid = false;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById("emailError").textContent = "Invalid email address";
+    valid = false;
+  }
+
+  if (message === "") {
+    document.getElementById("messageError").textContent = "Message cannot be empty";
+    valid = false;
+  }
+
+  if (valid) {
+    alert("Form submitted successfully!");
+  }
+});
+
+// To-Do List Functionality
+document.getElementById("addTask").addEventListener("click", function() {
+  let taskValue = document.getElementById("taskInput").value.trim();
+  if (taskValue === "") return;
+
+  let li = document.createElement("li");
+  li.textContent = taskValue;
+
+  let delBtn = document.createElement("button");
+  delBtn.textContent = "❌";
+  delBtn.onclick = function() {
+    li.remove();
+  };
+
+  li.appendChild(delBtn);
+  document.getElementById("taskList").appendChild(li);
+
+  document.getElementById("taskInput").value = "";
+});
+</script>
+</html>
